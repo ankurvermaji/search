@@ -1,0 +1,42 @@
+package sort;
+
+public class Test {
+	
+	public int binarySearch1(int[] arr ,int s, int l ,int x)
+	{
+		if(s<=l)
+		{
+			int mid = s +(l-s)/2;
+			if(arr[mid] == x)
+			{
+				return arr[mid];	
+			}
+			if(arr[mid] < x)
+			{
+				return binarySearch1(arr ,mid+1 ,l ,x);
+			}else
+			{
+				return binarySearch1(arr ,s, mid-1,x);
+			}
+		}
+		
+		
+		return -1;
+		
+	}
+	
+	public static void main(String args[])
+	{
+		Test ob = new Test();
+		int arr[] = { 2, 3, 4, 10, 40 };
+		int n = arr.length;
+		int x = 10;
+		int result = ob.binarySearch1(arr, 0, n - 1, x);
+		if (result == -1)
+			System.out.println("Element not present");
+		else
+			System.out.println("Element found at index " + result);
+	}
+
+
+}
